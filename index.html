@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rushikesh Shete — QA Engineer</title>
+<meta name="description" content="Rushikesh Gajanan Shete — Software QA Engineer transitioning from BFSI, building QA Book and equity research tools.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0e1a24;
+    --panel:#142330;
+    --panel-2:#0f1e29;
+    --text:#eaf0f2;
+    --muted:#8fa3ae;
+    --teal:#2fd5b0;
+    --amber:#f2a94e;
+    --line:#223844;
+    --maxw:920px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    margin:0 0 .4em;
+    letter-spacing:-0.01em;
+  }
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  ::selection{background:var(--teal);color:var(--ink);}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:3px;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  section{padding:72px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+
+  /* nav */
+  nav{
+    position:sticky;top:0;z-index:20;
+    background:rgba(14,26,36,.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+  nav .name{font-family:'Space Grotesk';font-weight:600;font-size:1rem;color:var(--text);}
+  nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0;}
+  nav a{color:var(--muted);font-size:.92rem;}
+  nav a:hover{color:var(--teal);text-decoration:none;}
+  @media(max-width:640px){nav ul{gap:14px;}nav a{font-size:.82rem;}}
+
+  /* hero */
+  .hero{padding-top:88px;}
+  .tag{
+    display:inline-block;
+    font-family:'IBM Plex Mono';
+    font-size:.78rem;
+    color:var(--amber);
+    border:1px solid var(--line);
+    padding:4px 10px;
+    border-radius:3px;
+    margin-bottom:22px;
+  }
+  .hero h1{font-size:clamp(2rem,5vw,3.1rem);max-width:14ch;}
+  .hero p.lead{color:var(--muted);font-size:1.08rem;max-width:56ch;margin-bottom:28px;}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    font-family:'Space Grotesk';font-weight:500;
+    padding:11px 20px;border-radius:4px;font-size:.92rem;
+    border:1px solid var(--line);
+  }
+  .btn-primary{background:var(--teal);color:var(--ink);border-color:var(--teal);}
+  .btn-primary:hover{background:#26bf9c;text-decoration:none;}
+  .btn-ghost{color:var(--text);}
+  .btn-ghost:hover{border-color:var(--teal);color:var(--teal);text-decoration:none;}
+
+  /* trace chain */
+  .chain{
+    display:flex;gap:0;margin-top:56px;overflow-x:auto;
+    padding-bottom:8px;
+  }
+  .chain-step{
+    flex:0 0 auto;min-width:128px;text-align:left;position:relative;padding-right:28px;
+  }
+  .chain-step .n{
+    font-family:'IBM Plex Mono';font-size:.72rem;color:var(--amber);display:block;margin-bottom:6px;
+  }
+  .chain-step .l{font-size:.88rem;color:var(--text);font-weight:500;}
+  .chain-step:not(:last-child)::after{
+    content:"→";position:absolute;right:2px;top:1px;color:var(--line);font-size:.9rem;
+  }
+
+  /* section headers */
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:8px;}
+  .sec-head h2{font-size:1.5rem;}
+  .sec-head .idx{font-family:'IBM Plex Mono';color:var(--muted);font-size:.82rem;}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;}
+  .about-grid p{color:var(--muted);}
+  .stat{margin-bottom:22px;}
+  .stat .v{font-family:'Space Grotesk';font-size:1.7rem;color:var(--teal);font-weight:600;}
+  .stat .l{font-size:.85rem;color:var(--muted);}
+  @media(max-width:720px){.about-grid{grid-template-columns:1fr;}}
+
+  /* experience */
+  .job{display:grid;grid-template-columns:170px 1fr;gap:24px;padding:26px 0;border-top:1px solid var(--line);}
+  .job:first-of-type{border-top:none;}
+  .job .when{font-family:'IBM Plex Mono';font-size:.8rem;color:var(--muted);}
+  .job h3{font-size:1.05rem;margin-bottom:2px;}
+  .job .role{color:var(--amber);font-size:.88rem;font-family:'IBM Plex Mono';margin-bottom:12px;display:block;}
+  .job ul{margin:0;padding-left:18px;color:var(--muted);font-size:.94rem;}
+  .job li{margin-bottom:6px;}
+  @media(max-width:640px){.job{grid-template-columns:1fr;gap:8px;}}
+
+  /* projects */
+  .project{
+    border:1px solid var(--line);border-radius:6px;padding:28px;margin-bottom:22px;background:var(--panel);
+  }
+  .project .phead{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:14px;flex-wrap:wrap;}
+  .project h3{font-size:1.15rem;margin-bottom:4px;}
+  .project .stack{color:var(--muted);font-size:.82rem;font-family:'IBM Plex Mono';}
+  .project ul{color:var(--muted);font-size:.93rem;padding-left:18px;margin:14px 0 0;}
+  .project li{margin-bottom:7px;}
+  .link-out{font-family:'IBM Plex Mono';font-size:.82rem;white-space:nowrap;}
+
+  /* skills */
+  .skill-groups{display:grid;grid-template-columns:1fr 1fr;gap:28px 40px;}
+  .skill-group h3{font-size:.78rem;font-family:'IBM Plex Mono';color:var(--amber);text-transform:none;margin-bottom:12px;font-weight:400;}
+  .pills{display:flex;flex-wrap:wrap;gap:8px;}
+  .pill{
+    font-size:.82rem;padding:6px 12px;border:1px solid var(--line);border-radius:3px;color:var(--text);
+  }
+  .pill.learning{color:var(--muted);border-style:dashed;}
+  @media(max-width:640px){.skill-groups{grid-template-columns:1fr;}}
+
+  /* education */
+  .edu-row{display:grid;grid-template-columns:100px 1fr;gap:20px;padding:16px 0;border-top:1px solid var(--line);}
+  .edu-row:first-of-type{border-top:none;}
+  .edu-row .when{font-family:'IBM Plex Mono';font-size:.8rem;color:var(--muted);}
+  .edu-row h3{font-size:1rem;margin-bottom:2px;}
+  .edu-row p{margin:0;color:var(--muted);font-size:.88rem;}
+
+  /* contact */
+  footer{padding:64px 0 40px;}
+  footer h2{font-size:1.6rem;max-width:16ch;}
+  footer p{color:var(--muted);margin-bottom:28px;}
+  .contact-links{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:40px;}
+  .contact-links a{font-family:'Space Grotesk';font-size:.95rem;color:var(--text);border-bottom:1px solid var(--line);padding-bottom:2px;}
+  .contact-links a:hover{color:var(--teal);border-color:var(--teal);text-decoration:none;}
+  .copyright{color:var(--muted);font-size:.8rem;font-family:'IBM Plex Mono';}
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="name">Rushikesh Shete</span>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="tag mono">QA-01 · Open to global roles</span>
+    <h1>Software QA Engineer, coming from the trading floor.</h1>
+    <p class="lead">4+ years in BFSI beta validation and customer-facing operations, now building and testing software full-time — including QA Book, a platform I designed to run my own test cycles end to end.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="Rushikesh_Shete_Resume.pdf" download>Download résumé</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/rushikeshshete09" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/Rushis09" target="_blank" rel="noopener">GitHub</a>
+    </div>
+
+    <div class="chain">
+      <div class="chain-step"><span class="n">01</span><span class="l">Requirement</span></div>
+      <div class="chain-step"><span class="n">02</span><span class="l">Test scenario</span></div>
+      <div class="chain-step"><span class="n">03</span><span class="l">Test case</span></div>
+      <div class="chain-step"><span class="n">04</span><span class="l">Execution</span></div>
+      <div class="chain-step"><span class="n">05</span><span class="l">Defect</span></div>
+      <div class="chain-step"><span class="n">06</span><span class="l">Release</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><h2>About</h2><span class="idx mono">§ 01</span></div>
+    <div class="about-grid reveal">
+      <p>I spent four years inside two of India's trading platforms — first at Angel One, then SBI Securities — not as an engineer, but as the person customers called when something broke. That put me in the room for beta validation, defect triage, and CRM-driven issue resolution long before I had a QA title.<br><br>
+      In 2025 I started treating that instinct as a discipline: reading up on structured testing, then building QA Book — a full-stack QA management platform — to give myself a real system to test against. I'm now formalizing that into test plans, test cases, and an automation practice with Playwright and Python.</p>
+      <div>
+        <div class="stat"><div class="v">4+ yrs</div><div class="l">BFSI, customer-facing &amp; beta validation</div></div>
+        <div class="stat"><div class="v">~20</div><div class="l">Selected nationally for platform beta testing (Angel One)</div></div>
+        <div class="stat"><div class="v">2</div><div class="l">Self-built QA / fintech projects</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head"><h2>Experience</h2><span class="idx mono">§ 02</span></div>
+
+    <div class="job reveal">
+      <div class="when">Jan 2024 – May 2025<br>Pune, India</div>
+      <div>
+        <h3>SBI Cap Securities</h3>
+        <span class="role">Trading Platform Beta Testing &amp; QA Validation</span>
+        <ul>
+          <li>Participated in beta validation of the SBI Securities trading app before production rollout.</li>
+          <li>Ran functional, UI and smoke testing across Login, Holdings, Portfolio, Funds, Reports and Watchlist.</li>
+          <li>Reproduced reported defects, verified fixes, and coordinated with Product, Ops and Technology teams.</li>
+          <li>Used the internal CRM for customer servicing and issue tracking across Equity, Mutual Funds, IPOs and Demat.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job reveal">
+      <div class="when">Jun 2021 – Sep 2023<br>Mumbai, India</div>
+      <div>
+        <h3>Angel One Ltd.</h3>
+        <span class="role">Beta Validation — Trading Platform</span>
+        <ul>
+          <li>One of ~20 employees selected nationally to beta-validate the migrated trading platform.</li>
+          <li>Executed functional, UI and end-to-end validation across Android, iOS and Web.</li>
+          <li>Logged defects in Jira and ran regression testing after fixes shipped.</li>
+          <li>Used Salesforce CRM for customer workflow management and issue resolution.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head"><h2>Projects</h2><span class="idx mono">§ 03</span></div>
+
+    <div class="project reveal">
+      <div class="phead">
+        <div>
+          <h3>QA Book</h3>
+          <div class="stack">FastAPI · SQLAlchemy · React · TypeScript · PostgreSQL · GitHub Actions</div>
+        </div>
+        <a class="link-out" href="https://qa-book.vercel.app/" target="_blank" rel="noopener">qa-book.vercel.app ↗</a>
+      </div>
+      <p style="color:var(--muted);margin:0;font-size:.94rem;">An AI-powered QA management platform, built to give myself a real product to test — end-to-end traceability from requirement to release.</p>
+      <ul>
+        <li>Full traceability chain: Requirements → Scenarios → Test Cases → Test Suites → Runs → Execution → Defects.</li>
+        <li>BRD upload and AI-assisted requirement generation (Gemini), with S3-compatible document storage.</li>
+        <li>Layered REST API (FastAPI, Pydantic, Alembic) with a React/TypeScript front end.</li>
+        <li>GitHub Actions CI on every push; deployed on Vercel, Render and Neon Postgres.</li>
+        <li>I test it myself — functional, UI, integration and end-to-end coverage across every module above.</li>
+      </ul>
+    </div>
+
+    <div class="project reveal">
+      <div class="phead">
+        <div>
+          <h3>Equity Research Terminal</h3>
+          <div class="stack">Python · Financial data modelling</div>
+        </div>
+      </div>
+      <p style="color:var(--muted);margin:0;font-size:.94rem;">A Screener.in / Tijori-style research dashboard for evaluating listed companies, built to combine my capital markets background with hands-on Python.</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head"><h2>Skills</h2><span class="idx mono">§ 04</span></div>
+    <div class="skill-groups reveal">
+      <div class="skill-group">
+        <h3>Testing</h3>
+        <div class="pills">
+          <span class="pill">Manual Testing</span><span class="pill">Functional</span>
+          <span class="pill">Regression</span><span class="pill">Smoke</span>
+          <span class="pill">Sanity</span><span class="pill">UI Testing</span>
+          <span class="pill">UAT</span><span class="pill">Beta Testing</span>
+          <span class="pill">Black Box</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>QA documentation</h3>
+        <div class="pills">
+          <span class="pill">BRD</span><span class="pill">Requirement Analysis</span>
+          <span class="pill">SRS</span><span class="pill">Test Plans</span>
+          <span class="pill">Test Scenarios / Cases</span><span class="pill">RTM</span>
+          <span class="pill">Defect Reports</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>API &amp; database</h3>
+        <div class="pills">
+          <span class="pill">REST API (FastAPI/Swagger)</span><span class="pill">JSON</span>
+          <span class="pill">SQL</span><span class="pill">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Tools &amp; CRM</h3>
+        <div class="pills">
+          <span class="pill">GitHub</span><span class="pill">VS Code</span>
+          <span class="pill">Jira</span><span class="pill">Excel</span>
+          <span class="pill">Salesforce CRM</span><span class="pill">Internal CRM</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Automation — in progress</h3>
+        <div class="pills">
+          <span class="pill learning">Python</span>
+          <span class="pill learning">Playwright</span>
+          <span class="pill learning">Pytest</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Domain</h3>
+        <div class="pills">
+          <span class="pill">Capital Markets</span><span class="pill">Equity</span>
+          <span class="pill">Mutual Funds</span><span class="pill">IPO</span>
+          <span class="pill">Demat</span><span class="pill">Financial Services</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head"><h2>Education</h2><span class="idx mono">§ 05</span></div>
+    <div class="reveal">
+      <div class="edu-row">
+        <div class="when">2025 – Present</div>
+        <div><h3>MBA, Business Analytics</h3><p>Savitribai Phule Pune University</p></div>
+      </div>
+      <div class="edu-row">
+        <div class="when">2019 – 2022</div>
+        <div><h3>Bachelor of Arts</h3><p>Sharda Mahavidyalaya, Parbhani — 80%</p></div>
+      </div>
+      <div class="edu-row">
+        <div class="when">2013 – 2016</div>
+        <div><h3>Diploma, Mechanical Engineering</h3><p>Shri Shivaji Polytechnic Institute, Parbhani — 75%</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <span class="idx mono" style="display:block;margin-bottom:12px;">§ 06</span>
+    <h2>Let's talk about QA roles.</h2>
+    <p>Open to Software QA / Manual Testing opportunities, globally.</p>
+    <div class="contact-links">
+      <a href="mailto:rushishete09@gmail.com">rushishete09@gmail.com</a>
+      <a href="tel:+919096768286">+91 90967 68286</a>
+      <a href="https://www.linkedin.com/in/rushikeshshete09" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/Rushis09" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="copyright">© 2026 Rushikesh Gajanan Shete</div>
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.15});
+  revealEls.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
