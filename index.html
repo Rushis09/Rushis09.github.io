@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d18">
+  <title>Rushikesh Shete | QA Automation Engineer</title>
+  <meta name="description" content="Rushikesh Gajanan Shete — QA professional with BFSI trading-platform validation experience, Tricentis Tosca certification, Playwright UI automation, and the QA Book project.">
+  <meta property="og:title" content="Rushikesh Shete | QA Automation Engineer">
+  <meta property="og:description" content="BFSI platform validation, test automation practice, and QA Book — a full-stack QA management platform.">
+  <meta property="og:image" content="https://rushis09.github.io/og-thumbnail.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rushis09.github.io/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #080d18;
+      --bg-soft: #0c1423;
+      --surface: rgba(17, 28, 47, .78);
+      --surface-solid: #111c2f;
+      --text: #edf3ff;
+      --muted: #9aa9c2;
+      --muted-2: #6e7e98;
+      --line: rgba(154, 177, 215, .16);
+      --accent: #71e4c4;
+      --accent-2: #82aaff;
+      --accent-3: #c2a3ff;
+      --max: 1120px;
+      --radius: 22px;
+      --shadow: 0 24px 80px rgba(0, 0, 0, .24);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body {
+      margin: 0; color: var(--text); background: var(--bg);
+      font-family: "DM Sans", sans-serif; line-height: 1.7;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+      background:
+        radial-gradient(ellipse at 12% 4%, rgba(74, 121, 226, .17), transparent 35%),
+        radial-gradient(ellipse at 87% 25%, rgba(61, 218, 177, .09), transparent 30%),
+        linear-gradient(180deg, #080d18 0%, #0a1120 50%, #080d18 100%);
+    }
+    body::after {
+      content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .15;
+      background-image: linear-gradient(rgba(151, 176, 220, .06) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(151, 176, 220, .06) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black, transparent 78%);
+    }
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    ::selection { background: var(--accent); color: #07111a; }
+    .container { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+    .mono { font-family: "DM Mono", monospace; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px; color: var(--accent);
+      font: 500 .76rem/1.4 "DM Mono", monospace; letter-spacing: .12em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 24px; height: 1px; background: currentColor; }
+    .section { padding: 104px 0; position: relative; }
+    .section + .section { border-top: 1px solid var(--line); }
+    .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 42px; }
+    .section-heading h2 { margin: 10px 0 0; font: 600 clamp(2rem, 4vw, 3rem)/1.1 "Space Grotesk", sans-serif; letter-spacing: -.055em; }
+    .section-heading p { max-width: 430px; color: var(--muted); margin: 0; }
+    .section-number { color: var(--muted-2); font: .8rem "DM Mono", monospace; white-space: nowrap; }
+    /* Navigation */
+    .nav-wrap { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid transparent; transition: background .25s, border-color .25s; }
+    .nav-wrap.scrolled { background: rgba(8, 13, 24, .82); backdrop-filter: blur(18px); border-color: var(--line); }
+    nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 11px; font: 600 1rem "Space Grotesk", sans-serif; letter-spacing: -.03em; }
+    .brand-mark {
+      width: 34px; height: 34px; display: grid; place-items: center; border-radius: 11px;
+      color: #07111a; background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      font: 700 .85rem "DM Mono", monospace; box-shadow: 0 0 24px rgba(113, 228, 196, .15);
+    }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { color: var(--muted); font-size: .88rem; transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-contact { border: 1px solid var(--line); padding: 9px 14px; border-radius: 999px; color: var(--text) !important; }
+    .menu-toggle { display: none; border: 1px solid var(--line); background: var(--surface-solid); color: var(--text); border-radius: 10px; padding: 9px 12px; font-size: 1rem; }
+    /* Hero */
+    .hero { min-height: calc(100svh - 76px); display: flex; align-items: center; padding: 92px 0 70px; position: relative; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr); align-items: center; gap: 62px; }
+    .availability { display: inline-flex; align-items: center; gap: 9px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; background: rgba(17, 28, 47, .58); color: #c5d2e8; font: .76rem "DM Mono", monospace; margin-bottom: 28px; }
+    .availability .dot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 0 5px rgba(113, 228, 196, .1); animation: pulse 2s infinite; }
+    .hero h1 { font: 600 clamp(3.2rem, 7.2vw, 6.15rem)/.99 "Space Grotesk", sans-serif; letter-spacing: -.075em; margin: 0; max-width: 800px; }
+    .hero h1 .gradient { display: block; background: linear-gradient(105deg, var(--accent) 5%, #a4d9ff 53%, var(--accent-3) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: .1em; }
+    .hero-subtitle { color: #c2cde0; font: 500 clamp(1.05rem, 2vw, 1.28rem)/1.6 "Space Grotesk", sans-serif; margin: 23px 0 12px; }
+    .typing { color: var(--accent); }
+    .cursor { display: inline-block; width: 2px; height: 1em; margin-left: 3px; vertical-align: -.12em; background: var(--accent); animation: blink .85s steps(2, start) infinite; }
+    .hero-copy { color: var(--muted); max-width: 610px; font-size: 1.02rem; margin: 0 0 30px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 1px solid var(--line); padding: 12px 18px; border-radius: 12px; font-weight: 600; font-size: .9rem; transition: transform .22s, box-shadow .22s, border-color .22s, background .22s; }
+    .btn:hover { transform: translateY(-3px); text-decoration: none; }
+    .btn-primary { background: var(--accent); color: #07131b; border-color: var(--accent); box-shadow: 0 8px 26px rgba(113, 228, 196, .13); }
+    .btn-primary:hover { box-shadow: 0 12px 34px rgba(113, 228, 196, .22); }
+    .btn-secondary { background: rgba(17, 28, 47, .6); color: var(--text); }
+    .btn-secondary:hover { border-color: rgba(130, 170, 255, .55); background: rgba(28, 43, 69, .8); }
+    .social-row { display: flex; align-items: center; gap: 18px; margin-top: 26px; color: var(--muted); font-size: .86rem; }
+    .social-row a { transition: color .2s; }
+    .social-row a:hover { color: var(--accent); }
+    .hero-visual { position: relative; min-height: 390px; display: grid; place-items: center; }
+    .orb { position: absolute; width: 320px; height: 320px; border-radius: 50%; filter: blur(1px); background: radial-gradient(circle at 35% 30%, rgba(113, 228, 196, .18), rgba(130, 170, 255, .09) 42%, transparent 70%); animation: float 7s ease-in-out infinite; }
+    .orbit { position: absolute; width: 300px; height: 300px; border: 1px solid rgba(130, 170, 255, .2); border-radius: 50%; transform: rotate(-25deg) scaleY(.56); animation: spin 22s linear infinite; }
+    .orbit.two { width: 360px; height: 360px; border-color: rgba(113, 228, 196, .16); transform: rotate(35deg) scaleY(.56); animation-direction: reverse; animation-duration: 30s; }
+    .orbit::after { content: ""; position: absolute; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); top: 18%; left: 13%; box-shadow: 0 0 20px var(--accent); }
+    .terminal-card { width: min(100%, 360px); position: relative; z-index: 2; border: 1px solid rgba(158, 184, 227, .22); border-radius: 18px; overflow: hidden; background: rgba(10, 18, 32, .86); box-shadow: var(--shadow); backdrop-filter: blur(16px); transform: rotate(2deg); animation: card-float 6s ease-in-out infinite; }
+    .terminal-top { display: flex; align-items: center; gap: 7px; border-bottom: 1px solid var(--line); padding: 14px 16px; color: var(--muted); font: .72rem "DM Mono", monospace; }
+    .terminal-top .light { width: 7px; height: 7px; border-radius: 50%; background: #f08b83; }
+    .terminal-top .light:nth-child(2) { background: #f0c76c; }
+    .terminal-top .light:nth-child(3) { background: var(--accent); margin-right: 7px; }
+    .terminal-body { padding: 21px 20px 22px; font: .79rem/1.9 "DM Mono", monospace; }
+    .terminal-line { color: var(--muted); }
+    .terminal-line strong { color: var(--accent); font-weight: 500; }
+    .terminal-line .blue { color: var(--accent-2); }
+    .terminal-status { display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); margin-top: 17px; padding-top: 14px; color: var(--muted); font-size: .7rem; }
+    .status-ok { color: var(--accent); }
+    .hero-bottom { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; color: var(--muted-2); font: .7rem "DM Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
+    .scroll-line { width: 32px; height: 1px; background: var(--muted-2); }
+    /* Trust strip */
+    .trust-strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(13, 21, 36, .58); }
+    .trust-items { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .trust-item { padding: 24px 22px; border-right: 1px solid var(--line); }
+    .trust-item:first-child { padding-left: 0; }
+    .trust-item:last-child { border-right: 0; }
+    .trust-item strong { display: block; font: 600 1.35rem "Space Grotesk", sans-serif; letter-spacing: -.04em; }
+    .trust-item span { display: block; color: var(--muted); font-size: .78rem; margin-top: 3px; }
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: start; }
+    .about-copy p { color: var(--muted); margin: 0 0 18px; }
+    .about-copy p strong { color: var(--text); font-weight: 600; }
+    .highlight-box { border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; background: linear-gradient(140deg, rgba(22, 36, 60, .8), rgba(12, 20, 35, .75)); }
+    .highlight-box h3 { margin: 0 0 18px; font: 600 1.08rem "Space Grotesk", sans-serif; }
+    .highlight { display: flex; gap: 13px; align-items: start; padding: 13px 0; border-top: 1px solid var(--line); }
+    .highlight-icon { display: grid; place-items: center; flex: 0 0 34px; height: 34px; border-radius: 10px; background: rgba(113, 228, 196, .1); color: var(--accent); font-size: .9rem; }
+    .highlight strong { display: block; font-size: .91rem; }
+    .highlight span { color: var(--muted); font-size: .81rem; display: block; }
+    /* Experience */
+    .timeline { position: relative; }
+    .timeline::before { content: ""; position: absolute; left: 166px; top: 20px; bottom: 25px; width: 1px; background: var(--line); }
+    .experience-card { display: grid; grid-template-columns: 140px 1fr; gap: 54px; padding: 0 0 38px; position: relative; }
+    .experience-card:last-child { padding-bottom: 0; }
+    .experience-date { color: var(--muted-2); font: .76rem/1.8 "DM Mono", monospace; }
+    .experience-content { position: relative; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); padding: 26px 28px; transition: transform .25s, border-color .25s, background .25s; }
+    .experience-content::before { content: ""; position: absolute; left: -39px; top: 31px; width: 9px; height: 9px; border: 3px solid var(--bg); border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 1px rgba(113, 228, 196, .35); }
+    .experience-content:hover { transform: translateY(-3px); border-color: rgba(113, 228, 196, .3); background: rgba(19, 32, 53, .95); }
+    .experience-top { display: flex; justify-content: space-between; align-items: start; gap: 18px; flex-wrap: wrap; }
+    .experience-content h3 { margin: 0; font: 600 1.22rem "Space Grotesk", sans-serif; }
+    .experience-role { color: var(--accent); font: .76rem "DM Mono", monospace; margin-top: 5px; }
+    .experience-content ul { margin: 19px 0 0; padding-left: 18px; color: var(--muted); font-size: .91rem; }
+    .experience-content li { padding-left: 3px; margin: 7px 0; }
+    .location { color: var(--muted-2); font-size: .78rem; }
+    /* Project */
+    .project-card { position: relative; overflow: hidden; border: 1px solid rgba(130, 170, 255, .25); border-radius: 26px; background: linear-gradient(125deg, rgba(20, 34, 58, .98), rgba(12, 21, 37, .98)); padding: clamp(26px, 5vw, 48px); box-shadow: var(--shadow); }
+    .project-card::before { content: ""; position: absolute; width: 380px; height: 380px; top: -230px; right: -90px; border-radius: 50%; background: rgba(113, 228, 196, .12); filter: blur(10px); pointer-events: none; }
+    .project-content { position: relative; z-index: 1; }
+    .project-top { display: flex; justify-content: space-between; align-items: start; gap: 20px; flex-wrap: wrap; }
+    .project-label { color: var(--accent); font: .76rem "DM Mono", monospace; text-transform: uppercase; letter-spacing: .1em; }
+    .project-card h3 { font: 600 clamp(2.2rem, 4vw, 3.5rem)/1.1 "Space Grotesk", sans-serif; letter-spacing: -.06em; margin: 10px 0; }
+    .project-intro { max-width: 710px; color: #c0cce0; font-size: 1rem; }
+    .stack-pills, .tag-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .stack-pills { margin: 22px 0 28px; }
+    .stack-pills span, .tag-pills span { font: .73rem "DM Mono", monospace; color: #c4d0e5; border: 1px solid var(--line); background: rgba(7, 13, 24, .34); border-radius: 999px; padding: 7px 11px; }
+    .project-features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 28px; margin: 30px 0; }
+    .feature { display: flex; align-items: start; gap: 11px; color: var(--muted); font-size: .88rem; }
+    .feature-check { color: var(--accent); font-weight: 700; }
+    .secondary-project { margin-top: 20px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px; border: 1px solid var(--line); border-radius: 18px; padding: 24px 26px; background: rgba(14, 23, 39, .58); }
+    .secondary-project h3 { margin: 0 0 5px; font: 600 1.08rem "Space Grotesk", sans-serif; }
+    .secondary-project p { margin: 0; color: var(--muted); font-size: .88rem; }
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .skill-card { border: 1px solid var(--line); background: rgba(16, 27, 45, .62); border-radius: 18px; padding: 24px; transition: transform .25s, border-color .25s; }
+    .skill-card:hover { transform: translateY(-4px); border-color: rgba(130, 170, 255, .4); }
+    .skill-card-head { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+    .skill-icon { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 12px; color: var(--accent); background: rgba(113, 228, 196, .07); font: .82rem "DM Mono", monospace; }
+    .skill-card h3 { margin: 0; font: 600 1rem "Space Grotesk", sans-serif; }
+    .skill-card p { margin: 0 0 16px; color: var(--muted); font-size: .82rem; }
+    .tag-pills span { font-size: .68rem; padding: 6px 9px; }
+    .skill-note { color: var(--muted-2); font-size: .8rem; margin-top: 22px; }
+    /* Certification and education */
+    .credentials-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .credential-card { border: 1px solid var(--line); border-radius: 18px; padding: 25px; background: var(--surface); }
+    .credential-card .small-label { color: var(--accent); font: .72rem "DM Mono", monospace; text-transform: uppercase; letter-spacing: .08em; }
+    .credential-card h3 { margin: 12px 0 7px; font: 600 1.13rem "Space Grotesk", sans-serif; }
+    .credential-card p { color: var(--muted); font-size: .87rem; margin: 0; }
+    .education-list { margin-top: 20px; border-top: 1px solid var(--line); }
+    .education-row { display: grid; grid-template-columns: 130px 1fr; gap: 18px; padding: 17px 0; border-bottom: 1px solid var(--line); }
+    .education-row .date { color: var(--muted-2); font: .73rem "DM Mono", monospace; }
+    .education-row strong { display: block; font-size: .9rem; }
+    .education-row span { display: block; color: var(--muted); font-size: .82rem; margin-top: 3px; }
+    /* Contact */
+    .contact-section { padding: 100px 0 36px; }
+    .contact-panel { position: relative; overflow: hidden; border: 1px solid rgba(113, 228, 196, .22); border-radius: 28px; padding: clamp(30px, 6vw, 66px); background: linear-gradient(120deg, rgba(20, 39, 59, .95), rgba(13, 22, 39, .95)); }
+    .contact-panel::after { content: ""; position: absolute; width: 330px; height: 330px; border-radius: 50%; right: -100px; bottom: -240px; background: rgba(130, 170, 255, .16); filter: blur(12px); }
+    .contact-panel h2 { position: relative; z-index: 1; max-width: 700px; font: 600 clamp(2.3rem, 5vw, 4.4rem)/1.05 "Space Grotesk", sans-serif; letter-spacing: -.06em; margin: 12px 0 18px; }
+    .contact-panel p { position: relative; z-index: 1; max-width: 600px; color: var(--muted); margin: 0 0 28px; }
+    .contact-actions { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 12px; }
+    footer { padding: 28px 0 32px; color: var(--muted-2); font-size: .78rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .footer-links { display: flex; gap: 18px; }
+    .footer-links a:hover { color: var(--accent); }
+    /* Motion */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: .1s; } .delay-2 { transition-delay: .2s; } .delay-3 { transition-delay: .3s; }
+    @keyframes pulse { 0%,100% { box-shadow: 0 0 0 5px rgba(113,228,196,.08); } 50% { box-shadow: 0 0 0 8px rgba(113,228,196,.02); } }
+    @keyframes blink { to { visibility: hidden; } }
+    @keyframes float { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-16px) scale(1.04); } }
+    @keyframes card-float { 0%,100% { transform: rotate(2deg) translateY(0); } 50% { transform: rotate(0deg) translateY(-9px); } }
+    @keyframes spin { to { rotate: 360deg; } }
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 25px; }
+      .hero { min-height: auto; padding-top: 76px; }
+      .hero-visual { min-height: 350px; margin-top: 8px; }
+      .hero-bottom { display: none; }
+      .about-grid { gap: 30px; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .timeline::before { left: 10px; }
+      .experience-card { grid-template-columns: 1fr; gap: 10px; padding-left: 35px; }
+      .experience-content::before { left: -32px; }
+      .experience-date { padding-left: 0; }
+    }
+    @media (max-width: 640px) {
+      .container { width: min(var(--max), calc(100% - 32px)); }
+      .section { padding: 74px 0; }
+      nav { min-height: 68px; }
+      .menu-toggle { display: inline-flex; }
+      .nav-links { display: none; position: absolute; top: 67px; left: 16px; right: 16px; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: rgba(8, 13, 24, .97); box-shadow: var(--shadow); flex-direction: column; align-items: stretch; gap: 0; }
+      .nav-links.open { display: flex; }
+      .nav-links li a { display: block; padding: 11px 6px; }
+      .nav-contact { margin-top: 7px; text-align: center; }
+      .hero { padding: 62px 0 56px; }
+      .hero h1 { font-size: clamp(3rem, 15vw, 4.5rem); }
+      .hero-copy { font-size: .95rem; }
+      .hero-visual { min-height: 315px; }
+      .orb { width: 260px; height: 260px; }
+      .orbit { width: 245px; height: 245px; }
+      .orbit.two { width: 295px; height: 295px; }
+      .terminal-card { width: min(100%, 330px); }
+      .trust-items { grid-template-columns: repeat(2, 1fr); }
+      .trust-item { padding: 18px 12px; border-bottom: 1px solid var(--line); }
+      .trust-item:first-child { padding-left: 12px; }
+      .trust-item:nth-child(2) { border-right: 0; }
+      .trust-item:nth-child(3), .trust-item:nth-child(4) { border-bottom: 0; }
+      .section-heading { align-items: start; margin-bottom: 30px; }
+      .section-heading p { display: none; }
+      .section-number { padding-top: 6px; }
+      .about-grid, .credentials-grid { grid-template-columns: 1fr; }
+      .experience-content { padding: 22px 19px; }
+      .project-features { grid-template-columns: 1fr; gap: 12px; }
+      .secondary-project { grid-template-columns: 1fr; }
+      .secondary-project .btn { justify-self: start; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .education-row { grid-template-columns: 100px 1fr; gap: 12px; }
+      .contact-section { padding-top: 74px; }
+      .footer-inner { align-items: start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap" id="navWrap">
+    <nav class="container" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Rushikesh Shete home"><span class="brand-mark">RS</span><span>Rushikesh Shete<span style="color:var(--accent)">.</span></span></a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open navigation menu">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#credentials">Credentials</a></li>
+        <li><a class="nav-contact" href="#contact">Let's connect ↗</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+    <header class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy-wrap">
+          <div class="availability"><span class="dot"></span> QA opportunities · Open to connect</div>
+          <h1>Making quality <span class="gradient">part of the process.</span></h1>
+          <p class="hero-subtitle">I'm Rushikesh — <span class="typing" id="typingText">QA Automation Learner</span><span class="cursor" aria-hidden="true"></span></p>
+          <p class="hero-copy">I bring hands-on experience validating BFSI and trading platforms, backed by Tricentis Tosca certification and practical automation work with Playwright. I'm building reliable, testable products through real-world practice and my QA Book project.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="Rushikesh_Shete_QA_CV.pdf" download>Download CV <span aria-hidden="true">↓</span></a>
+            <a class="btn btn-secondary" href="#projects">Explore my work <span aria-hidden="true">↘</span></a>
+          </div>
+          <div class="social-row">
+            <a href="https://www.linkedin.com/in/rushikeshshete09" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a href="https://github.com/Rushis09" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a href="mailto:rushishete09@gmail.com">Email ↗</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Animated QA test status illustration">
+          <div class="orb"></div><div class="orbit"></div><div class="orbit two"></div>
+          <div class="terminal-card">
+            <div class="terminal-top"><span class="light"></span><span class="light"></span><span class="light"></span><span>qa-workflow.spec.ts</span></div>
+            <div class="terminal-body">
+              <div class="terminal-line"><span class="blue">describe</span>(<strong>'release quality'</strong>, () =&gt; {</div>
+              <div class="terminal-line">&nbsp;&nbsp;<span class="blue">test</span>(<strong>'critical user flow'</strong>, async () =&gt; {</div>
+              <div class="terminal-line">&nbsp;&nbsp;&nbsp;&nbsp;await page.<span class="blue">goto</span>(<strong>'/dashboard'</strong>);</div>
+              <div class="terminal-line">&nbsp;&nbsp;&nbsp;&nbsp;await expect(page).<span class="blue">toBeVisible</span>();</div>
+              <div class="terminal-line">&nbsp;&nbsp;});</div>
+              <div class="terminal-line">});</div>
+              <div class="terminal-status"><span>TEST EXECUTION</span><span class="status-ok">● PASS · 100%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-bottom"><span class="scroll-line"></span> Scroll to explore</div>
+    </header>
+
+    <div class="trust-strip">
+      <div class="container trust-items">
+        <div class="trust-item"><strong>4+ years</strong><span>BFSI & trading-platform exposure</span></div>
+        <div class="trust-item"><strong>Tosca</strong><span>Certified · Advanced Proficiency</span></div>
+        <div class="trust-item"><strong>Playwright</strong><span>Hands-on UI automation practice</span></div>
+        <div class="trust-item"><strong>QA Book</strong><span>Full-stack QA project</span></div>
+      </div>
+    </div>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div><span class="eyebrow">A little about me</span><h2>Quality is a mindset.</h2></div>
+          <span class="section-number">01 / ABOUT</span>
+        </div>
+        <div class="about-grid">
+          <div class="about-copy reveal">
+            <p>My QA journey started close to the customer. At <strong>Angel One</strong> and <strong>SBI Cap Securities</strong>, I worked around trading-platform workflows, beta validation, issue reproduction, fix verification, and regression checks.</p>
+            <p>That experience taught me to look beyond whether a screen works: I think about user journeys, financial workflows, edge cases, and the impact of a defect. I am now developing my technical QA skills through <strong>Tricentis Tosca</strong>, <strong>Playwright with TypeScript</strong>, API checks in Swagger, and a product I can test end to end.</p>
+            <p><strong>My goal:</strong> bring domain understanding, structured testing, and growing automation skills to a QA team where I can keep learning and contribute to dependable releases.</p>
+          </div>
+          <aside class="highlight-box reveal delay-1">
+            <h3>What I bring to a QA team</h3>
+            <div class="highlight"><span class="highlight-icon">01</span><div><strong>Domain context</strong><span>Capital markets, equity, mutual funds, IPO and Demat workflows.</span></div></div>
+            <div class="highlight"><span class="highlight-icon">02</span><div><strong>Testing fundamentals</strong><span>Functional, smoke, exploratory, regression and end-to-end validation.</span></div></div>
+            <div class="highlight"><span class="highlight-icon">03</span><div><strong>Automation practice</strong><span>Tosca concepts and Playwright UI automation in a hands-on project.</span></div></div>
+            <div class="highlight"><span class="highlight-icon">04</span><div><strong>Clear defect communication</strong><span>Reproduction steps, observations, fix checks and cross-team coordination.</span></div></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div><span class="eyebrow">Professional background</span><h2>Experience that shaped my QA approach.</h2></div>
+          <span class="section-number">02 / EXPERIENCE</span>
+        </div>
+        <div class="timeline">
+          <article class="experience-card reveal">
+            <div class="experience-date">JAN 2024 — MAY 2025<br><span class="location">Pune, India</span></div>
+            <div class="experience-content">
+              <div class="experience-top"><div><h3>SBI Cap Securities</h3><div class="experience-role">Trading Platform Beta Testing &amp; QA Validation</div></div><span class="location">BFSI</span></div>
+              <ul>
+                <li>Participated in beta validation of the SBI Securities trading app before production rollout.</li>
+                <li>Ran functional, UI and smoke checks across Login, Holdings, Portfolio, Funds, Reports and Watchlist.</li>
+                <li>Reproduced reported defects, verified fixes, and coordinated with Product, Operations and Technology teams.</li>
+                <li>Supported issue tracking across Equity, Mutual Funds, IPO and Demat workflows.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="experience-card reveal">
+            <div class="experience-date">JUN 2021 — SEP 2023<br><span class="location">Mumbai, India</span></div>
+            <div class="experience-content">
+              <div class="experience-top"><div><h3>Angel One Ltd.</h3><div class="experience-role">Customer Experience &amp; Trading Platform Beta Validation</div></div><span class="location">BFSI</span></div>
+              <ul>
+                <li>Selected among approximately 20 employees nationally to beta-validate a migrated trading platform.</li>
+                <li>Performed functional, UI and end-to-end validation across Android, iOS and Web workflows.</li>
+                <li>Logged defects and observations in Jira, reproduced customer-reported issues and checked fixes through regression testing.</li>
+                <li>Coordinated issue resolution across customer-facing trading workflows.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div><span class="eyebrow">Selected work</span><h2>Learning by building.</h2></div>
+          <span class="section-number">03 / PROJECTS</span>
+        </div>
+        <article class="project-card reveal">
+          <div class="project-content">
+            <div class="project-top">
+              <div><div class="project-label">Featured project · Live</div><h3>QA Book</h3></div>
+              <a class="btn btn-primary" href="https://qa-book.vercel.app/" target="_blank" rel="noopener noreferrer">Visit live project ↗</a>
+            </div>
+            <p class="project-intro">An AI-powered QA management platform I built to practice testing against a real product. It connects the QA lifecycle — from requirements through test execution and defect tracking — in one workspace.</p>
+            <div class="stack-pills"><span>React</span><span>TypeScript</span><span>FastAPI</span><span>PostgreSQL</span><span>Playwright</span><span>Tricentis Tosca</span><span>Swagger</span></div>
+            <div class="project-features">
+              <div class="feature"><span class="feature-check">✓</span><span>Traceability across Requirements → Scenarios → Test Cases → Suites → Runs → Execution → Defects.</span></div>
+              <div class="feature"><span class="feature-check">✓</span><span>Playwright UI automation practice using TypeScript for navigation, forms and validations.</span></div>
+              <div class="feature"><span class="feature-check">✓</span><span>REST API validation through Swagger, including request/response behavior and integration checks.</span></div>
+              <div class="feature"><span class="feature-check">✓</span><span>Tosca practice with reusable modules, TestCase Design, ActionModes, dynamic test data and recovery/cleanup.</span></div>
+              <div class="feature"><span class="feature-check">✓</span><span>Functional, UI, integration and end-to-end testing across core QA workflows.</span></div>
+              <div class="feature"><span class="feature-check">✓</span><span>Deployed web application with a full-stack architecture and database-backed workflows.</span></div>
+            </div>
+            <a class="btn btn-secondary" href="https://github.com/Rushis09" target="_blank" rel="noopener noreferrer">Explore GitHub ↗</a>
+          </div>
+        </article>
+        <article class="secondary-project reveal">
+          <div><div class="project-label">In progress</div><h3>Equity Research Terminal</h3><p>A financial research dashboard concept combining capital-markets knowledge with Python and financial data modelling.</p></div>
+          <span class="section-number">PYTHON / FINANCE</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div><span class="eyebrow">Technical toolkit</span><h2>Skills &amp; tools.</h2></div>
+          <span class="section-number">04 / SKILLS</span>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-card reveal"><div class="skill-card-head"><span class="skill-icon">QA</span><h3>Software Testing</h3></div><p>Manual testing fundamentals and structured validation.</p><div class="tag-pills"><span>Functional</span><span>Smoke</span><span>Regression</span><span>Exploratory</span><span>UI</span><span>Integration</span><span>End-to-End</span><span>Beta Testing</span></div></article>
+          <article class="skill-card reveal delay-1"><div class="skill-card-head"><span class="skill-icon">T</span><h3>Tricentis Tosca</h3></div><p>Certified; practical learning and automation exercises.</p><div class="tag-pills"><span>AS1 / AS2</span><span>TDS1 / TDS2</span><span>AE1</span><span>TestCase Design</span><span>ActionModes</span><span>Buffers</span><span>Recovery / Cleanup</span></div></article>
+          <article class="skill-card reveal delay-2"><div class="skill-card-head"><span class="skill-icon">PW</span><h3>Playwright</h3></div><p>Hands-on browser UI automation with TypeScript.</p><div class="tag-pills"><span>TypeScript</span><span>Locators</span><span>Assertions</span><span>Forms</span><span>Navigation</span><span>UI Workflows</span></div></article>
+          <article class="skill-card reveal"><div class="skill-card-head"><span class="skill-icon">API</span><h3>API &amp; Data</h3></div><p>API inspection and database fundamentals.</p><div class="tag-pills"><span>REST API</span><span>Swagger</span><span>JSON</span><span>SQL</span><span>PostgreSQL</span></div></article>
+          <article class="skill-card reveal delay-1"><div class="skill-card-head"><span class="skill-icon">DOC</span><h3>QA Documentation</h3></div><p>Turning requirements into traceable test coverage.</p><div class="tag-pills"><span>Requirement Analysis</span><span>Test Scenarios</span><span>Test Cases</span><span>Test Plans</span><span>RTM</span><span>Defect Reports</span></div></article>
+          <article class="skill-card reveal delay-2"><div class="skill-card-head"><span class="skill-icon">DEV</span><h3>Tools &amp; Domain</h3></div><p>Tools and business context from financial services.</p><div class="tag-pills"><span>Jira</span><span>GitHub</span><span>VS Code</span><span>Python basics</span><span>Capital Markets</span><span>Equity</span><span>Mutual Funds</span><span>IPO / Demat</span></div></article>
+        </div>
+        <p class="skill-note reveal">I distinguish hands-on project practice from professional employment experience; I’m continuing to deepen my automation skills.</p>
+      </div>
+    </section>
+
+    <section class="section" id="credentials">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div><span class="eyebrow">Learning &amp; credentials</span><h2>Building a strong foundation.</h2></div>
+          <span class="section-number">05 / CREDENTIALS</span>
+        </div>
+        <div class="credentials-grid">
+          <article class="credential-card reveal"><div class="small-label">Certification</div><h3>Tricentis Certified Tosca On-Prem Product Consultant</h3><p>Advanced Proficiency · Earned September 2026 · Valid through September 2028</p></article>
+          <article class="credential-card reveal delay-1"><div class="small-label">Current study</div><h3>MBA — Business Analytics</h3><p>Savitribai Phule Pune University · 2025–Present</p></article>
+        </div>
+        <div class="education-list reveal">
+          <div class="education-row"><div class="date">2019 — 2022</div><div><strong>Bachelor of Arts</strong><span>Sharda Mahavidyalaya, Parbhani · 80%</span></div></div>
+          <div class="education-row"><div class="date">2013 — 2016</div><div><strong>Diploma in Mechanical Engineering</strong><span>Shri Shivaji Polytechnic Institute, Parbhani · 75%</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <span class="eyebrow">Get in touch</span>
+          <h2>Let’s make software more reliable.</h2>
+          <p>I’m open to QA Engineer and QA Automation opportunities where I can apply my testing experience, keep growing technically, and contribute to product quality.</p>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="mailto:rushishete09@gmail.com">Email me ↗</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/rushikeshshete09" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a>
+            <a class="btn btn-secondary" href="Rushikesh_Shete_QA_CV.pdf" download>Download CV ↓</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year">2026</span> Rushikesh Gajanan Shete · Built with care for quality.</span>
+      <div class="footer-links"><a href="https://github.com/Rushis09" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/rushikeshshete09" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="#home">Back to top ↑</a></div>
+    </div>
+  </footer>
+
+  <script>
+    // Respect reduced-motion preferences and keep the page usable without animation.
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Scroll reveal
+    const revealElements = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && !reduceMotion) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -35px 0px' });
+      revealElements.forEach(element => revealObserver.observe(element));
+    } else {
+      revealElements.forEach(element => element.classList.add('visible'));
+    }
+
+    // Typing animation
+    const typingElement = document.getElementById('typingText');
+    const roles = ['QA Automation Learner', 'Software QA Professional', 'Tricentis Tosca Certified'];
+    if (typingElement && !reduceMotion) {
+      let roleIndex = 0, charIndex = roles[0].length, deleting = true;
+      const typeNext = () => {
+        const current = roles[roleIndex];
+        if (deleting) {
+          charIndex--;
+          typingElement.textContent = current.slice(0, charIndex);
+          if (charIndex <= 0) { deleting = false; roleIndex = (roleIndex + 1) % roles.length; }
+          setTimeout(typeNext, 42);
+        } else {
+          const next = roles[roleIndex];
+          charIndex++;
+          typingElement.textContent = next.slice(0, charIndex);
+          if (charIndex >= next.length) {
+            deleting = true;
+            setTimeout(typeNext, 1750);
+          } else {
+            setTimeout(typeNext, 70);
+          }
+        }
+      };
+      setTimeout(typeNext, 1700);
+    }
+
+    // Mobile navigation
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+      menuToggle.textContent = isOpen ? '✕' : '☰';
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Open navigation menu');
+      menuToggle.textContent = '☰';
+    }));
+
+    // Frosted navigation on scroll and current section highlight
+    const navWrap = document.getElementById('navWrap');
+    const sections = document.querySelectorAll('main section[id], main header[id]');
+    const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+    const updateNavigation = () => {
+      navWrap.classList.toggle('scrolled', window.scrollY > 12);
+      let activeId = 'home';
+      sections.forEach(section => { if (window.scrollY >= section.offsetTop - 150) activeId = section.id; });
+      navAnchors.forEach(anchor => anchor.classList.toggle('active', anchor.getAttribute('href') === '#' + activeId));
+    };
+    window.addEventListener('scroll', updateNavigation, { passive: true });
+    updateNavigation();
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
